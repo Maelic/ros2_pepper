@@ -2,14 +2,14 @@ FROM ubuntu:xenial
 MAINTAINER esteve@apache.org
 RUN dpkg --add-architecture i386
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends locales
+RUN apt-get install -y --no-install-recommends locales apt-utils
 RUN locale-gen en_US en_US.UTF-8
 RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG en_US.UTF-8
 RUN apt-get install -y --no-install-recommends lsb-release software-properties-common
 RUN apt-get install -y --no-install-recommends apt-transport-https
-RUN echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list
-RUN apt-key adv --keyserver hkps.pool.sks-keyservers.net --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
+RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
+RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends libc6-i386
 RUN apt-get install -y --no-install-recommends apt-transport-https
