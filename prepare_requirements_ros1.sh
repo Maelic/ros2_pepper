@@ -43,9 +43,9 @@ docker run -it --rm \
   ros1-pepper \
   bash -c "\
     set -euf -o pipefail && \
-    wget https://fossies.org/linux/misc/bzip2-1.0.6.tar.gz && \
-    tar -xvf bzip2-1.0.6.tar.gz && \
-    cd bzip2-1.0.6 && \
+    wget https://fossies.org/linux/misc/bzip2-1.0.8.tar.gz && \
+    tar -xvf bzip2-1.0.8.tar.gz && \
+    cd bzip2-1.0.8 && \
     make -f Makefile-libbz2_so && \
     make && \
     make install PREFIX=/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} && \
