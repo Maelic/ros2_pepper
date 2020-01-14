@@ -31,9 +31,9 @@ mkdir -p ros1_dependencies_sources/src
 cp repos/ros1_dependencies.repos ros1_dependencies_sources/
 
 USE_TTY=""
-if [ -z "$ROS_PEPPER_CI" ]; then
-  USE_TTY="-it"
-fi
+#if [ -z "$ROS_PEPPER_CI" ]; then
+#  USE_TTY="-it"
+#fi
 
 docker run ${USE_TTY} --rm \
   -u $(id -u) \
