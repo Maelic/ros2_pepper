@@ -239,10 +239,10 @@ repositories:
     type: git
     url: https://github.com/ros-gbp/ros_comm-release.git
     version: 0f0047ed868e5c5310943264ea4932b565d4477d
-  ros_comm/rostopic:
-    type: git
-    url: https://github.com/ros-gbp/ros_comm-release.git
-    version: 6e87666d63f7a686eabcb7ce08cd0909729950f6
+  #ros_comm/rostopic:
+  #  type: git
+  #  url: https://github.com/ros-gbp/ros_comm-release.git
+  #  version: 6e87666d63f7a686eabcb7ce08cd0909729950f6
   ros_comm/roswtf:
     type: git
     url: https://github.com/ros-gbp/ros_comm-release.git

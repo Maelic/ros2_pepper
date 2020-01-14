@@ -195,6 +195,7 @@ set(_library_dirs
   "\
   -L${ALDE_CTC_CROSS}/boost/lib \
   -L${ALDE_CTC_CROSS}/bzip2/lib \
+  -L${ALDE_CTC_CROSS}/pcre/lib \
   -L${ALDE_CTC_CROSS}/icu/lib \
   -L${ALDE_CTC_CROSS}/jpeg/lib \
   -L${ALDE_CTC_CROSS}/png/lib \
@@ -202,6 +203,18 @@ set(_library_dirs
   -L${ALDE_CTC_CROSS}/zlib/lib \
   -L${ALDE_CTC_CROSS}/xz_utils/lib \
   -L${ALDE_CTC_CROSS}/openssl/lib \
+  -L${ALDE_CTC_CROSS}/tbb/lib \
+  -L${ALDE_CTC_CROSS}/jpeg/lib \
+  -L${ALDE_CTC_CROSS}/v4l/lib \
+  -L${ALDE_CTC_CROSS}/ffmpeg/lib \
+  -L${ALDE_CTC_CROSS}/vorbis/lib \
+  -L${ALDE_CTC_CROSS}/vo-amrwbenc/lib \
+  -L${ALDE_CTC_CROSS}/vo-aacenc/lib \
+  -L${ALDE_CTC_CROSS}/libtheora/lib \
+  -L${ALDE_CTC_CROSS}/speex/lib \
+  -L${ALDE_CTC_CROSS}/opus/lib \
+  -L${ALDE_CTC_CROSS}/opencore-amr/lib \
+  -L${ALDE_CTC_CROSS}/ogg/lib \
   -L/home/nao/${INSTALL_ROOT}/ros1_dependencies/lib \
   "
 )
@@ -229,11 +242,14 @@ set(Boost_DETAILED_FAILURE_MSG 1 CACHE INTERNAL "" FORCE)
 set(TinyXML_LIBRARY "${ALDE_CTC_CROSS}/tinyxml/lib/libtinyxml.so" CACHE INTERNAL "" FORCE)
 set(TinyXML_INCLUDE_DIR "${ALDE_CTC_CROSS}/tinyxml/include" CACHE INTERNAL "" FORCE)
 
-set(PCRE_LIBRARY "${ALDE_CTC_CROSS}/pcre/lib/libpcre.so" CACHE INTERNAL "" FORCE)
-set(PCRE_INCLUDE_DIR "${ALDE_CTC_CROSS}/pcre/include" CACHE INTERNAL "" FORCE)
+set(TINYXML2_LIBRARY "/home/nao/${INSTALL_ROOT}/ros1_dependencies/lib/libtinyxml2.so" CACHE INTERNAL "" FORCE)
+set(TINYXML2_INCLUDE_DIR "/home/nao/${INSTALL_ROOT}/ros1_dependencies/include" CACHE INTERNAL "" FORCE)
 
 set(OPENSSL_INCLUDE_DIR "${ALDE_CTC_CROSS}/openssl/include/openssl" CACHE INTERNAL "" FORCE)
 set(OPENSSL_LIBRARIES "${ALDE_CTC_CROSS}/openssl/lib/libssl.so" CACHE INTERNAL "" FORCE)
+
+set(PCRE_LIBRARY "${ALDE_CTC_CROSS}/pcre/lib/libpcre.so" CACHE INTERNAL "" FORCE)
+set(PCRE_INCLUDE_DIR "${ALDE_CTC_CROSS}/pcre/include" CACHE INTERNAL "" FORCE)
 
 set(lz4_INCLUDE_DIRS "${ALDE_CTC_CROSS}/lz4/include" CACHE INTERNAL "" FORCE)
 set(lz4_LIBRARIES "${ALDE_CTC_CROSS}/lz4/lib/liblz4.so" CACHE INTERNAL "" FORCE)
@@ -278,15 +294,15 @@ link_directories(${ALDE_CTC_CROSS}/vo-amrwbenc/lib)
 link_directories(${ALDE_CTC_CROSS}/vorbis/lib)
 link_directories(${ALDE_CTC_CROSS}/xz_utils/lib)
 link_directories(${ALDE_CTC_CROSS}/zlib/lib)
-link_directories(${ALDE_CTC_CROSS}/openssl/lib)
 link_directories(${ALDE_CTC_CROSS}/pcre/lib)
 link_directories(/home/nao/${INSTALL_ROOT}/ros1_dependencies/lib)
 
 include_directories(${ALDE_CTC_CROSS}/bzip2/include)
-include_directories(${ALDE_CTC_CROSS}/eigen3/include)
 include_directories(${ALDE_CTC_CROSS}/pcre/include)
+include_directories(${ALDE_CTC_CROSS}/eigen3/include)
+include_directories(${ALDE_CTC_CROSS}/ctc/boost/include)
 
-include_directories(${ALDE_CTC_CROSS}/openssl/include)
+include_directories(${ALDE_CTC_CROSS}/openssl/include/openssl)
 include_directories(/home/nao/${INSTALL_ROOT}/ros1_dependencies/include)
 
 set(_link_flags "")
@@ -311,6 +327,41 @@ if(
     -licui18n \
     -licuuc \
     "
+  )
+elseif(
+  PROJECT_NAME STREQUAL "image_tools" OR
+  PROJECT_NAME STREQUAL "intra_process_demo"
+)
+set(_link_flags
+  "\
+  -ltbb \
+  -ljpeg \
+  -lpng \
+  -ltiff \
+  -lv4l1 \
+  -lavcodec \
+  -lavformat \
+  -lavutil \
+  -lswscale \
+  -lz \
+  -llzma \
+  -lv4l2 \
+  -lvorbisenc \
+  -lvorbis \
+  -lvo-amrwbenc \
+  -lvo-aacenc \
+  -ltheoraenc \
+  -ltheoradec \
+  -lspeex \
+  -lopus \
+  -lopencore-amrwb \
+  -lssl \
+  -lcrypto \
+  -lbz2 \
+  -lopencore-amrnb \
+  -lv4lconvert \
+  -logg \
+  "
   )
 elseif(
   PROJECT_NAME STREQUAL "naoqi_driver" OR
@@ -377,7 +428,7 @@ elseif(
      -lz \
      "
      )
-   include_directories(${ALDE_CTC_CROSS}/openssl/include)
+   include_directories(${ALDE_CTC_CROSS}/openssl/include/openssl)
 
 endif()
 
