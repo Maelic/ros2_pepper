@@ -59,7 +59,7 @@ docker run -it --rm \
       ac_cv_file__dev_ptmx=yes \
       ac_cv_file__dev_ptc=no && \
     export LD_LIBRARY_PATH=/home/nao/ctc/openssl/lib:/home/nao/ctc/zlib/lib:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/lib && \
-    make -j4 install && \
+    make -j8 install && \
     wget -O - -q https://bootstrap.pypa.io/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
     /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces Twisted"
 
@@ -84,7 +84,7 @@ docker run -it --rm \
       --disable-ipv6 \
       ac_cv_file__dev_ptmx=yes \
       ac_cv_file__dev_ptc=no && \
-    make -j4 install && \
+    make -j8 install && \
     wget -O - -q https://bootstrap.pypa.io/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
     /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces pymongo image tornado && \
     cd .. && \

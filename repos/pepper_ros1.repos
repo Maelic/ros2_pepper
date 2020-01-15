@@ -10,7 +10,7 @@ repositories:
   catkin:
     type: git
     url: https://github.com/ros-gbp/catkin-release.git
-    version: 716fe09b957a07ac1632ce96f8e3cff8ef6d9374
+    version: c8749ef3646810a359ea68d134debda0823f5883
   class_loader:
     type: git
     url: https://github.com/ros-gbp/class_loader-release.git

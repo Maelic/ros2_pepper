@@ -9,4 +9,4 @@ cmake \
   -DCMAKE_TOOLCHAIN_FILE=/home/nao/pepper_ros1_ws/ctc-cmake-toolchain.cmake \
   -DALDE_CTC_CROSS=/home/nao/ctc \
   ../../src/poco
-make -j2 install
+make -j8 install
