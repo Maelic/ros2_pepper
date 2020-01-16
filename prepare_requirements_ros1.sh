@@ -88,7 +88,7 @@ docker run -it --rm \
     wget -O - -q https://bootstrap.pypa.io/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
     /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces pymongo image tornado && \
     cd .. && \
-    wget https://twistedmatrix.com/Releases/Twisted/16.0/Twisted-16.0.0.tar.bz2 && \
-    tar -xjvf Twisted-16.0.0.tar.bz2 && \
-    cd Twisted-16.0.0 && \
+    wget https://twistedmatrix.com/Releases/Twisted/19.10/Twisted-19.10.0.tar.bz2 && \
+    tar -xjvf Twisted-19.10.0.tar.bz2 && \
+    cd Twisted-19.10.0 && \
     python setup.py install"
