@@ -19,7 +19,7 @@ We're going to use Docker to set up a container that will compile all the tools 
 1. Clone the project's repository
 
 ```
-$ git clone git clone https://github.com/esteve/ros2_pepper.git
+$ git clone git clone https://github.com/JackFK/ros2_pepper.git
 $ cd ros2_pepper
 ```
 
