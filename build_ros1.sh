@@ -77,5 +77,5 @@ cp ${PWD}/setup.bash ${HOST_INSTALL_ROOT}/
 cp ${PWD}/st-000-ros1.bash ${HOST_INSTALL_ROOT}/startup_scripts/
 cp ${PWD}/setup_ros1_pepper.bash ${HOST_INSTALL_ROOT}/setup_ros1_pepper.bash
 cd ${PWD}
-tar -zcvf ../System.tar.gz System
+tar -zcf ../System.tar.gz System
 # mkdir: cannot create directory ‘/home/ubuntu/pepper_root/System/startup_scripts/’: File exists
