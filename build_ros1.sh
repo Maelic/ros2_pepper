@@ -75,4 +75,6 @@ docker run -it --rm \
 mkdir ${HOST_INSTALL_ROOT}/startup_scripts/
 cp ${PWD}/setup.bash ${HOST_INSTALL_ROOT}/
 cp ${PWD}/st-000-ros1.bash ${HOST_INSTALL_ROOT}/startup_scripts/
+cd ${PWD}
+tar -zcvf ../System.tar.gz System
 # mkdir: cannot create directory ‘/home/ubuntu/pepper_root/System/startup_scripts/’: File exists
