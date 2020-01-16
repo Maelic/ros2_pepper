@@ -13,13 +13,13 @@ export ALDE_CTC_CROSS=$AL_DIR/ctc-linux64-atom-2.5.2.74
 
 ## Prepare cross-compiling environment
 
-We're going to use Docker to set up a container that will compile all the tools for cross-compiling ROS and all of its dependencies. Go to https://https://www.docker.com/community-edition to download it and install it for your Linux distribution.
+We're going to use Docker to set up a container that will compile all the tools for cross-compiling ROS and all of its dependencies. Go to https://www.docker.com/community-edition to download it and install it for your Linux distribution.
 
 
 1. Clone the project's repository
 
 ```
-$ git clone git clone https://github.com/esteve/ros2_pepper.git
+$ git clone git clone https://github.com/JackFK/ros2_pepper.git
 $ cd ros2_pepper
 ```
 
@@ -59,15 +59,15 @@ Finally! Type the following, go grab a coffee and after a while you'll have an e
 
 By now you should have the following inside .ros-root in the current directory:
 
-- Python 2.7 built for Pepper (.ros-root/Python-2.7.13)
-- All the dependencies required by ROS (.ros-root/ros1_dependencies)
-- A ROS workspace with ROS Kinetic built for Pepper (.ros-root/ros1_inst)
-- A helper script that will set up the ROS workspace in the robot (.ros-root/setup_ros1_pepper.bash)
+- Python 2.7 built for Pepper (System/Python-2.7.17)
+- All the dependencies required by ROS (System/ros1_dependencies)
+- A ROS workspace with ROS Kinetic built for Pepper (System/ros1_inst)
+- A helper script that will set up the ROS workspace in the robot (System/setup_ros1_pepper.bash)
 
 We're going to copy these to the robot, assuming that your robot is connected to your network, type the following:
 
 ```
-$ scp -r .ros-root nao@IP_ADDRESS_OF_YOUR_ROBOT:.ros-root
+$ scp -r System nao@IP_ADDRESS_OF_YOUR_ROBOT:ROS
 ```
 
 ### Run ROS 1 from inside Pepper
