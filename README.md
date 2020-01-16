@@ -83,7 +83,7 @@ $ ssh nao@IP_ADDRESS_OF_YOUR_ROBOT
 *Source (not run) the setup script*
 
 ```
-$ source .ros-root/setup_ros1_pepper.bash
+$ source System/setup_ros1_pepper.bash
 ```
 
 *Start naoqi_driver, note that NETWORK\_INTERFACE may be either wlan0 or eth0, pick the appropriate interface if your robot is connected via wifi or ethernet*
