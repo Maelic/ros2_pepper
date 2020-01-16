@@ -135,6 +135,10 @@ repositories:
     type: git
     url: https://github.com/esteve/libqicore-release.git
     version: boost-cmake
+  naoqi_driver:
+    type: git
+    url: https://github.com/ros-naoqi/pepper_robot.git
+    version: master
   opencv3:
     type: git
     url: https://github.com/ros-gbp/opencv3-release.git
@@ -239,10 +243,10 @@ repositories:
     type: git
     url: https://github.com/ros-gbp/ros_comm-release.git
     version: 0f0047ed868e5c5310943264ea4932b565d4477d
-  #ros_comm/rostopic:
-  #  type: git
-  #  url: https://github.com/ros-gbp/ros_comm-release.git
-  #  version: 6e87666d63f7a686eabcb7ce08cd0909729950f6
+  ros_comm/rostopic:
+    type: git
+    url: https://github.com/ros-gbp/ros_comm-release.git
+    version: f1fccb0d524664263f79bcd367502d085f8c4c4e
   ros_comm/roswtf:
     type: git
     url: https://github.com/ros-gbp/ros_comm-release.git
