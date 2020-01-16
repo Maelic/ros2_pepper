@@ -59,7 +59,7 @@ Finally! Type the following, go grab a coffee and after a while you'll have an e
 
 By now you should have the following inside .ros-root in the current directory:
 
-- Python 2.7 built for Pepper (System/Python-2.7.13)
+- Python 2.7 built for Pepper (System/Python-2.7.17)
 - All the dependencies required by ROS (System/ros1_dependencies)
 - A ROS workspace with ROS Kinetic built for Pepper (System/ros1_inst)
 - A helper script that will set up the ROS workspace in the robot (System/setup_ros1_pepper.bash)
