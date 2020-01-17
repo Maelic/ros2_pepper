@@ -135,6 +135,10 @@ repositories:
     type: git
     url: https://github.com/esteve/libqicore-release.git
     version: boost-cmake
+#  pepper_robot:
+#    type: git
+#    url: https://github.com/ros-naoqi/nao_robot.git
+#    version: master
   pepper_robot:
     type: git
     url: https://github.com/ros-naoqi/pepper_robot.git
