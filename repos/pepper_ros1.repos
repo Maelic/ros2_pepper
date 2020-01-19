@@ -254,7 +254,7 @@ repositories:
   ros_comm/rostopic:
     type: git
     url: https://github.com/ros-gbp/ros_comm-release.git
-    version: f1fccb0d524664263f79bcd367502d085f8c4c4e
+    version: ce981c42f3b6b7e09790a83e8a17479cc5c1e7de
   ros_comm/roswtf:
     type: git
     url: https://github.com/ros-gbp/ros_comm-release.git
@@ -362,11 +362,15 @@ repositories:
   image_transport_plugins/compressed_depth_image_transport:
     type: git
     url: https://github.com/ros-gbp/image_transport_plugins-release.git
-    version: 64c13f8390904fe1e9ef82762c601fb1dae8864f
+    version: 64c13f8390904fe1e9ef82762c601fb1dae8864f #Latest commit 64c13f8 on Oct 3, 2016
   image_transport_plugins/compressed_image_transport:
     type: git
     url: https://github.com/ros-gbp/image_transport_plugins-release.git
-    version: 41be5d5e0651842e1c0bf2c2f8c403cacca285ed
+    version: 41be5d5e0651842e1c0bf2c2f8c403cacca285ed #Latest commit 41be5d5 on Oct 3, 2016
+  image_transport_plugins/image_transport_plugins:
+    type: git
+    url: https://github.com/ros-gbp/image_transport_plugins-release.git
+    version: 6ae5bac937f87475c555246186594ec03d0aceac #Latest commit 6ae5bac on Oct 3, 2016
   rosauth:
     type: git
     url: https://github.com/esteve/rosauth.git
