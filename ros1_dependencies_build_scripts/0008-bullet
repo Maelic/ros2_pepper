@@ -11,4 +11,4 @@ cmake  \
   -BUILD_CPU_DEMOS=OFF \
   -DBUILD_SHARED_LIBS=ON \
   ../../src/bullet3
-make -j4 install
+make -j8 install

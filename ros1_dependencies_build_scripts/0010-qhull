@@ -10,4 +10,4 @@ cmake \
   -DCMAKE_FIND_ROOT_PATH="/home/nao/ros1_dependencies;/home/nao/ctc" \
   -DBUILD_SHARED_LIBS=ON \
    ../../src/qhull
-make -j4 install
+make -j8 install

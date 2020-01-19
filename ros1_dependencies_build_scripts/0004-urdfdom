@@ -9,4 +9,4 @@ cmake \
   -DALDE_CTC_CROSS=/home/nao/ctc \
   -DCMAKE_FIND_ROOT_PATH="/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies;/home/nao/ctc" \
   ../../src/urdfdom
-make -j4 install
+make -j8 install

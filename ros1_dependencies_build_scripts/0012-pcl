@@ -19,4 +19,4 @@ cmake \
   -DPCL_ENABLE_SSE=OFF \
   -DEIGEN_ROOT=${ALDE_CTC_CROSS}/eigen3 \
   ../../src/pcl
-make -j4 install
+make -j8 install

@@ -9,4 +9,4 @@ cd /home/nao/ros1_dependencies_sources/build/SDL
   --host=i686-aldebaran-linux-gnu \
   --build=x86_64-linux \
   --enable-shared
-make -j4 install
+make -j8 install

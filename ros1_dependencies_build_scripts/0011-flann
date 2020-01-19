@@ -14,4 +14,4 @@ cmake \
   -DBUILD_MATLAB_BINDINGS=OFF \
   -DBUILD_EXAMPLES=OFF \
   ../../src/flann
-make -j4 install
+make -j8 install
