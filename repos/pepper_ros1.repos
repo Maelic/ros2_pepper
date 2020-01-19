@@ -10,7 +10,7 @@ repositories:
   catkin:
     type: git
     url: https://github.com/ros-gbp/catkin-release.git
-    version: c8749ef3646810a359ea68d134debda0823f5883
+    version: b2f41366a7c1ee6c7e7b30e4c2fa273b0e1c4c5a
   class_loader:
     type: git
     url: https://github.com/ros-gbp/class_loader-release.git
@@ -18,7 +18,7 @@ repositories:
   cmake_modules:
     type: git
     url: https://github.com/ros-gbp/cmake_modules-release.git
-    version: 75f24c23e3895bee084d760d5050af60d11aa0ab
+    version: c3f1dd0259f99568da98b7650b20215939e2e654
   common_msgs/actionlib_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
@@ -106,7 +106,11 @@ repositories:
   image_common/image_transport:
     type: git
     url: https://github.com/ros-gbp/image_common-release.git
-    version: 6abab778faf5be08d63386031752ddd00bb184fa
+    version: 4bd07e4454aef32a847bd82b4f065cbd7ef47741
+  image_common/camera_info_manager:
+    type: git
+    url: https://github.com/ros-gbp/image_common-release.git
+    version: 4bd07e4454aef32a847bd82b4f065cbd7ef47741
   kdl_parser/kdl_parser:
     type: git
     url: https://github.com/ros-gbp/kdl_parser-release.git
