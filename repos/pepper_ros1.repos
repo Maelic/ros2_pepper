@@ -18,7 +18,7 @@ repositories:
   cmake_modules:
     type: git
     url: https://github.com/ros-gbp/cmake_modules-release.git
-    version: c3f1dd0259f99568da98b7650b20215939e2e654
+    version: 75f24c23e3895bee084d760d5050af60d11aa0ab
   common_msgs/actionlib_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
