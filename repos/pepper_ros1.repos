@@ -371,6 +371,10 @@ repositories:
     type: git
     url: https://github.com/ros-gbp/image_transport_plugins-release.git
     version: 6ae5bac937f87475c555246186594ec03d0aceac #Latest commit 6ae5bac on Oct 3, 2016
+  image_common/image_transport:
+    type: git
+    url: https://github.com/ros-perception/image_common.git
+    version: f9e705aac2218f0ba97fd029e9d7ba709d17dae4
   rosauth:
     type: git
     url: https://github.com/esteve/rosauth.git
