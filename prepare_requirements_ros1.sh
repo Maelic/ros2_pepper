@@ -63,6 +63,37 @@ docker run -it --rm \
     wget -O - -q https://bootstrap.pypa.io/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
     /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces Twisted"
 
+
+docker run -it --rm \
+  -u $(id -u $USER) \
+  -e PYTHON2_VERSION=${PYTHON2_VERSION} \
+  -v ${PWD}/Python-${PYTHON2_VERSION}:/home/nao/Python-${PYTHON2_VERSION}-src \
+  -v ${PWD}/Python-${PYTHON2_VERSION}-host:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} \
+  -v ${ALDE_CTC_CROSS}:/home/nao/ctc \
+  -e CC \
+  -e CPP \
+  -e CXX \
+  -e RANLIB \
+  -e AR \
+  -e AAL \
+  -e LD \
+  -e READELF \
+  -e CFLAGS \
+  -e CPPFLAGS \
+  -e LDFLAGS \
+  ros1-pepper \
+  bash -c "\
+   set -euf -o pipefail && \
+   wget https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz && \
+   tar -zxvf icu4c-65_1-src.tgz && \
+   mkdir -p build_icu && \
+   cd build_icu && \
+   CPPFLAGS="-DU_CHARSET_IS_UTF8=1" ../icu/source/runConfigureICU Linux && \
+   make check && \
+   make -j8 && \
+   make install"
+
+
 docker run -it --rm \
   -u $(id -u $USER) \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \

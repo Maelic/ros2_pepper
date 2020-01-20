@@ -48,6 +48,7 @@ docker run -it --rm \
   -v ${PWD}/pepper_ros1_ws:/home/nao/pepper_ros1_ws \
   ros1-pepper \
   bash -c "\
+    ls /opt/ && \
     set -euf -o pipefail && \
     export LD_LIBRARY_PATH=/home/nao/ctc/openssl/lib:/home/nao/ctc/zlib/lib:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/lib && \
     export PATH=/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin:$PATH && \

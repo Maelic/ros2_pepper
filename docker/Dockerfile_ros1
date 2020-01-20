@@ -13,12 +13,13 @@ RUN apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends libc6-i386
 RUN apt-get install -y --no-install-recommends liblz4-1
+RUN apt-get install -y --no-install-recommends icu-devtools
 RUN apt-get install -y --no-install-recommends apt-transport-https
 RUN apt-get install -y --no-install-recommends build-essential cmake git libssl-dev wget zlib1g-dev
 RUN apt-get install -y --no-install-recommends python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential
 RUN apt-get install -y --no-install-recommends python3-vcstool python3-empy python-empy
 RUN apt-get install -y --no-install-recommends automake pkg-config libtool
-RUN apt-get install -y --no-install-recommends ccache
+RUN apt-get install -y --no-install-recommends ccache 
 RUN useradd -ms /bin/bash nao
 WORKDIR /home/nao
 USER nao
