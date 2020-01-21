@@ -370,11 +370,15 @@ repositories:
   image_common/image_transport:
     type: git
     url: https://github.com/ros-gbp/image_common-release
-    version: release/kinetic/image_transport/1.11.13-0  
+    version: release/kinetic/image_transport/1.11.13-0
+  image_common/camera_info_manager:
+    type: git
+    url: https://github.com/ros-gbp/image_common-release
+    version: release/kinetic/polled_camera/1.11.13-0
   image_common/polled_camera:
     type: git
     url: https://github.com/ros-gbp/image_common-release
-    version: release/kinetic/polled_camera/1.11.13-0 
+    version: release/kinetic/camera_info_manager/1.11.13-0
 #  image_common/camera_calibration_parsers:
 #    type: git
 #    url: https://github.com/ros-gbp/image_common-release
