@@ -379,10 +379,10 @@ repositories:
     type: git
     url: https://github.com/ros-gbp/image_common-release
     version: release/kinetic/camera_info_manager/1.11.13-0
-#  image_common/camera_calibration_parsers:
-#    type: git
-#    url: https://github.com/ros-gbp/image_common-release
-#    version: release/kinetic/camera_calibration_parsers/1.11.13-0 
+  image_common/camera_calibration_parsers:
+    type: git
+    url: https://github.com/ros-gbp/image_common-release
+    version: release/kinetic/camera_calibration_parsers/1.11.13-0 
   rosauth:
     type: git
     url: https://github.com/esteve/rosauth.git
