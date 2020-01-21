@@ -22,6 +22,8 @@ fi
 
 mkdir -p ${PWD}/Python-${PYTHON2_VERSION}-host
 mkdir -p ${HOST_INSTALL_ROOT}/Python-${PYTHON2_VERSION}
+#mkdir -p ${HOST_INSTALL_ROOT}/icu4c-65_1
+
 
 docker run -it --rm \
   -u $(id -u $USER) \
@@ -67,8 +69,7 @@ docker run -it --rm \
 docker run -it --rm \
   -u $(id -u $USER) \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \
-  -v ${PWD}/Python-${PYTHON2_VERSION}:/home/nao/Python-${PYTHON2_VERSION}-src \
-  -v ${PWD}/Python-${PYTHON2_VERSION}-host:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} \
+  -v ${HOST_INSTALL_ROOT}:/home/nao/${PEPPER_INSTALL_ROOT} \
   -v ${ALDE_CTC_CROSS}:/home/nao/ctc \
   -e CC \
   -e CPP \
@@ -84,14 +85,30 @@ docker run -it --rm \
   ros1-pepper \
   bash -c "\
    set -euf -o pipefail && \
-   wget https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz && \
-   tar -zxvf icu4c-65_1-src.tgz && \
+   wget https://github.com/unicode-org/icu/releases/download/release-51-3/icu4c-51_3-src.tgz && \
+   tar -zxvf icu4c-51_3-src.tgz && \
    mkdir -p build_icu && \
    cd build_icu && \
-   CPPFLAGS="-DU_CHARSET_IS_UTF8=1" ../icu/source/runConfigureICU Linux && \
-   make check && \
+   CPPFLAGS="-DU_CHARSET_IS_UTF8=1" ../icu/source/runConfigureICU Linux \
+      --prefix=/home/nao/icu4c \
+      --enable-tests=no && \
    make -j8 && \
-   make install"
+   make install && \
+   cd /home/nao && \
+   mkdir -p build_icu_pepper && \
+   cd build_icu_pepper && \
+   export PATH=$PATH:/home/nao/ctc/bin && \
+   CPPFLAGS="-DU_CHARSET_IS_UTF8=1" ../icu/source/runConfigureICU Linux \
+      --prefix=/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies \
+      --enable-tests=no \
+      --host=i686-aldebaran-linux-gnu \
+      --build=x86_64-linux \
+      --with-cross-build=/home/nao/build_icu && \
+   make -j8 && \
+   make install "
+
+
+
 
 
 docker run -it --rm \

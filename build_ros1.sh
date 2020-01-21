@@ -50,9 +50,11 @@ docker run -it --rm \
   bash -c "\
     set -euf -o pipefail && \
     export LD_LIBRARY_PATH=/home/nao/ctc/openssl/lib:/home/nao/ctc/zlib/lib:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/lib && \
-    export PATH=/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin:$PATH && \
+    export PATH=/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin:/home/nao/${PEPPER_INSTALL_ROOT}/bin:$PATH && \
     export PKG_CONFIG_PATH=/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies/lib/pkgconfig && \
-    cd pepper_ros1_ws && \
+    export LDFLAGS="-L/home/nao/${PEPPER_INSTALL_ROOT}/lib/icu" && \
+    export CPPFLAGS="-I/home/nao/${PEPPER_INSTALL_ROOT}/include" && \
+cd pepper_ros1_ws && \
     vcs import src < pepper_ros1.repos && \
     touch src/orocos_kinematics_dynamics/python_orocos_kdl/CATKIN_IGNORE && \
     ./src/catkin/bin/catkin_make_isolated --install --install-space /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst -DCMAKE_BUILD_TYPE=Release \
