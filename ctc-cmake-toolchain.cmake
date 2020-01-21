@@ -304,6 +304,7 @@ if(
   PROJECT_NAME STREQUAL "tf" OR
   PROJECT_NAME STREQUAL "kdl_parser" OR
   PROJECT_NAME STREQUAL "robot_state_publisher" OR
+  PROJECT_NAME STREQUAL "polled_camera" OR
   PROJECT_NAME STREQUAL "nodelet")
   set(_link_flags
     "\
