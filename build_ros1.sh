@@ -54,7 +54,8 @@ docker run -it --rm \
     export PKG_CONFIG_PATH=/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies/lib/pkgconfig && \
     export LDFLAGS="-L/home/nao/${PEPPER_INSTALL_ROOT}/lib/icu" && \
     export CPPFLAGS="-I/home/nao/${PEPPER_INSTALL_ROOT}/include" && \
-cd pepper_ros1_ws && \
+    cd pepper_ros1_ws && \
+    rm -rf src/naoqi_bridge src/naoqi_driver src/ros-naoqi  && \
     vcs import src < pepper_ros1.repos && \
     touch src/orocos_kinematics_dynamics/python_orocos_kdl/CATKIN_IGNORE && \
     ./src/catkin/bin/catkin_make_isolated --install --install-space /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst -DCMAKE_BUILD_TYPE=Release \
@@ -76,14 +77,13 @@ cd pepper_ros1_ws && \
       -DCMAKE_FIND_ROOT_PATH=\"/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}-pepper;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst;/home/nao/ctc\" \
     "
 
-mkdir ${HOST_INSTALL_ROOT}/startup_scripts/
-cp ${PWD}/setup.bash ${HOST_INSTALL_ROOT}/
-cp ${PWD}/st-000-ros1.bash ${HOST_INSTALL_ROOT}/startup_scripts/
+mkdir -p  ${HOST_INSTALL_ROOT}/startup_scripts/
+#cp ${PWD}/setup.bash ${HOST_INSTALL_ROOT}/
+#cp ${PWD}/st-000-ros1.bash ${HOST_INSTALL_ROOT}/startup_scripts/
 cp ${PWD}/setup_ros1_pepper.bash ${HOST_INSTALL_ROOT}/setup_ros1_pepper.bash
 cd ${PWD}
 echo "Debug: PWD: ${PWD}"
 echo "Debug: HOST_INSTALL_ROOT: ${HOST_INSTALL_ROOT}"
 echo "Debug: "
-tar -zcf ../System.tar.gz System
-# mkdir: cannot create directory ‘/home/ubuntu/pepper_root/System/startup_scripts/’: File exists
+tar -zcf ../System_$(date +%s).tar.gz System
 echo "Done!"

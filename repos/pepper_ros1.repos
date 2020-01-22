@@ -39,10 +39,10 @@ repositories:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
     version: 0f04150826ff8f0dc2acdf47fad44557035857cf
-  octomap/octomap_msgs:
-    type: git
-    url: https://github.com/OctoMap/octomap_msgs.git
-    version: 0.3.3
+ #octomap/octomap_msgs:
+ #  type: git
+ #  url: https://github.com/OctoMap/octomap_msgs.git
+ #  version: 0.3.3
   common_msgs/trajectory_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
@@ -133,7 +133,7 @@ repositories:
     version: e25d4dc6b0e1cb5406be183cd9c486086a41dc82
   naoqi_driver:
     type: git
-    url: https://github.com/esteve/naoqi_driver.git
+    url: https://github.com/JackFK/naoqi_driver.git  #https://github.com/esteve/naoqi_driver.git
     version: bz2-cmake
   naoqi_libqi:
     type: git
@@ -143,10 +143,18 @@ repositories:
     type: git
     url: https://github.com/esteve/libqicore-release.git
     version: boost-cmake
-  naoqi_bridge:
+  #naoqi_bridge:
+  #  type: git
+  #  url: https://github.com/ros-naoqi/naoqi_bridge.git
+  #  version: master
+ # naoqi_bridge/naoqi_bridge:
+ #   type: git
+ #   url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+ #   version: ??
+  naoqi_bridge/naoqi_pose:
     type: git
-    url: https://github.com/ros-naoqi/naoqi_bridge.git
-    version: master
+    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+    version: release/kinetic/naoqi_pose/0.5.5-0
   pepper_robot:
     type: git
     url: https://github.com/ros-naoqi/pepper_robot.git
