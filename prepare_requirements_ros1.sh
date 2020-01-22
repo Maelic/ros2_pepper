@@ -66,50 +66,6 @@ docker run -it --rm \
     /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces Twisted"
 
 
-docker run -it --rm \
-  -u $(id -u $USER) \
-  -e PYTHON2_VERSION=${PYTHON2_VERSION} \
-  -v ${HOST_INSTALL_ROOT}:/home/nao/${PEPPER_INSTALL_ROOT} \
-  -v ${ALDE_CTC_CROSS}:/home/nao/ctc \
-  -e CC \
-  -e CPP \
-  -e CXX \
-  -e RANLIB \
-  -e AR \
-  -e AAL \
-  -e LD \
-  -e READELF \
-  -e CFLAGS \
-  -e CPPFLAGS \
-  -e LDFLAGS \
-  ros1-pepper \
-  bash -c "\
-   set -euf -o pipefail && \
-   wget https://github.com/unicode-org/icu/releases/download/release-51-3/icu4c-51_3-src.tgz && \
-   tar -zxvf icu4c-51_3-src.tgz && \
-   mkdir -p build_icu && \
-   cd build_icu && \
-   CPPFLAGS="-DU_CHARSET_IS_UTF8=1" ../icu/source/runConfigureICU Linux \
-      --prefix=/home/nao/icu4c \
-      --enable-tests=no && \
-   make -j8 && \
-   make install && \
-   cd /home/nao && \
-   mkdir -p build_icu_pepper && \
-   cd build_icu_pepper && \
-   export PATH=$PATH:/home/nao/ctc/bin && \
-   CPPFLAGS="-DU_CHARSET_IS_UTF8=1" ../icu/source/runConfigureICU Linux \
-      --prefix=/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies \
-      --enable-tests=no \
-      --host=i686-aldebaran-linux-gnu \
-      --build=x86_64-linux \
-      --with-cross-build=/home/nao/build_icu && \
-   make -j8 && \
-   make install "
-
-
-
-
 
 docker run -it --rm \
   -u $(id -u $USER) \

@@ -39,6 +39,10 @@ repositories:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
     version: 0f04150826ff8f0dc2acdf47fad44557035857cf
+  octomap/octomap_msgs:
+    type: git
+    url: https://github.com/OctoMap/octomap_msgs.git
+    version: 0.3.3
   common_msgs/trajectory_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git

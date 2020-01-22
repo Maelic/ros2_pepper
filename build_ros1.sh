@@ -58,7 +58,9 @@ cd pepper_ros1_ws && \
     vcs import src < pepper_ros1.repos && \
     touch src/orocos_kinematics_dynamics/python_orocos_kdl/CATKIN_IGNORE && \
     ./src/catkin/bin/catkin_make_isolated --install --install-space /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst -DCMAKE_BUILD_TYPE=Release \
-    --cmake-args \
+      --ignore-pkg naoqi_sensors_py \
+      --cmake-args \
+      -DCATKIN_BLACKLIST_PACKAGES="naoqi_sensors_py" \
       -DOPENSSL_ROOT_DIR=/home/nao/ctc/openssl \
       -DWITH_QT=OFF \
       -DSETUPTOOLS_DEB_LAYOUT=OFF \
