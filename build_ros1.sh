@@ -55,13 +55,13 @@ docker run -it --rm \
     export LDFLAGS="-L/home/nao/${PEPPER_INSTALL_ROOT}/lib/icu" && \
     export CPPFLAGS="-I/home/nao/${PEPPER_INSTALL_ROOT}/include" && \
     cd pepper_ros1_ws && \
-    rm -rf src/naoqi_bridge src/naoqi_driver src/ros-naoqi  && \
+    rm -rf src/perception_pcl/* && \
     vcs import src < pepper_ros1.repos && \
     touch src/orocos_kinematics_dynamics/python_orocos_kdl/CATKIN_IGNORE && \
     ./src/catkin/bin/catkin_make_isolated --install --install-space /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst -DCMAKE_BUILD_TYPE=Release \
       --ignore-pkg naoqi_sensors_py \
       --cmake-args \
-      -DCATKIN_BLACKLIST_PACKAGES="naoqi_sensors_py" \
+      -DCATKIN_BLACKLIST_PACKAGES="naoqi_sensors_py;pointcloud_to_pcd;pcd_to_pointcloud;convert_pointcloud_to_image" \
       -DOPENSSL_ROOT_DIR=/home/nao/ctc/openssl \
       -DWITH_QT=OFF \
       -DSETUPTOOLS_DEB_LAYOUT=OFF \
