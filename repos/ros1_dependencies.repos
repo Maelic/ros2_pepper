@@ -51,3 +51,8 @@ repositories:
     type: git
     url: https://github.com/jbeder/yaml-cpp.git
     version: 998d7bf31e1bab4e45221c28fad8e00ddcf8855e
+  octomap:
+    type: git
+    url: https://github.com/OctoMap/octomap.git
+    version: v1.9.1
+
