@@ -2,6 +2,8 @@ FROM ubuntu:xenial
 MAINTAINER esteve@apache.org
 RUN dpkg --add-architecture i386
 RUN apt-get update
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+RUN apt-get install -y -q 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y --no-install-recommends locales
 RUN locale-gen en_US en_US.UTF-8
