@@ -22,27 +22,51 @@ repositories:
   common_msgs/actionlib_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
-    version: 41ff39e3c3950f3bbb95ea932507aa8fa9868588
+    version: release/lunar/actionlib_msgs/1.12.7-0
+  common_msgs/visualization_msgs:
+    type: git
+    url: https://github.com/ros-gbp/common_msgs-release.git
+    version: release/kinetic/visualization_msgs/1.12.7-0
   common_msgs/diagnostic_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
-    version: ec8e0153e864432e9ee060ec8ca029aa135cae87
+    version: release/kinetic/diagnostic_msgs/1.12.7-0
   common_msgs/geometry_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
-    version: 78b06a7c98f6e50924dfc17f6db6d23442e1200c
+    version: release/kinetic/geometry_msgs/1.12.7-0
   common_msgs/nav_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
-    version: 84d4e89f428454b763d62d0853388566738566ad
+    version: release/kinetic/nav_msgs/1.12.7-0
   common_msgs/sensor_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
-    version: 0f04150826ff8f0dc2acdf47fad44557035857cf
- #octomap/octomap_msgs:
- #  type: git
- #  url: https://github.com/OctoMap/octomap_msgs.git
- #  version: 0.3.3
+    version: release/kinetic/sensor_msgs/1.12.7-0
+  octomap/octomap_msgs:
+    type: git
+    url: https://github.com/OctoMap/octomap_msgs.git
+    version: 0.3.3
+  octomap/octomap_mapping:
+    type: git
+    url: https://github.com/OctoMap/octomap_mapping.git
+    version: 0.6.4
+  perception_pcl/perception_pcl:
+    type: git
+    url: https://github.com/ros-gbp/perception_pcl-release.git
+    version: release/kinetic/perception_pcl/1.4.4-0
+  perception_pcl/pcl_ros:
+    type: git
+    url: https://github.com/ros-gbp/perception_pcl-release.git
+    version: release/kinetic/pcl_ros/1.4.4-0
+  perception_pcl/pcl_conversions:
+    type: git
+    url: https://github.com/ros-gbp/pcl_conversions-release.git
+    version: release/kinetic/pcl_conversions/0.2.1-0
+  perception_pcl/pcl_msgs:
+    type: git
+    url: https://github.com/ros-gbp/pcl_msgs-release.git
+    version: release/kinetic/pcl_msgs/0.2.0-0
   common_msgs/trajectory_msgs:
     type: git
     url: https://github.com/ros-gbp/common_msgs-release.git
@@ -86,27 +110,31 @@ repositories:
   geometry2/tf2:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
-    version: 704747b7bc1456710dcd94cab4b480f4c4a6ca7d
+    version: release/kinetic/tf2/0.5.20-0
   geometry2/tf2_geometry_msgs:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
-    version: 5c394963f63ee989e9b1259764b5198b1c3b068a
+    version: release/kinetic/tf2_geometry_msgs/0.5.20-0
   geometry2/tf2_kdl:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
-    version: bab9c18e91ce66b399bb84a7c6743ee30c1da897
+    version: release/kinetic/tf2_kdl/0.5.20-0
   geometry2/tf2_msgs:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
-    version: 098becbb70d9414ceb11b2e23ae4a8c8371f5b71
+    version: release/kinetic/tf2_msgs/0.5.20-0
   geometry2/tf2_py:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
-    version: 1bca8cf6d095d5e3ffa02ab04f63a693e43b0224
+    version: release/kinetic/tf2_py/0.5.20-0
   geometry2/tf2_ros:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
-    version: e99e6f727a2d2262ae301d0a23df84d6c42011ed
+    version: release/kinetic/tf2_ros/0.5.20-0
+  geometry2/tf2_eigen:
+    type: git
+    url: https://github.com/ros-gbp/geometry2-release.git
+    version: release/kinetic/tf2_eigen/0.5.20-0
   image_common/image_transport:
     type: git
     url: https://github.com/ros-gbp/image_common-release.git
@@ -399,3 +427,8 @@ repositories:
     type: git
     url: https://github.com/esteve/rosauth.git
     version: fix-openssl
+  #point_cloud_transport: TODO!
+  #  type: git
+  #  url: https://github.com/paplhjak/point_cloud_transport.git
+  #  version: dd3274514b030a88107bdfd5166f53b67b3ef7fe
+
