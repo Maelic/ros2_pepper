@@ -7,7 +7,7 @@ cmake \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_TOOLCHAIN_FILE=/home/nao/pepper_ros1_ws/ctc-cmake-toolchain.cmake \
   -DALDE_CTC_CROSS=/home/nao/ctc \
-  -DSANITIZE=address \
+  -DENABLE_TESTS=OFF \
   ../../src/draco
 make -j8
 make install
