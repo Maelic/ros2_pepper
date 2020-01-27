@@ -61,7 +61,7 @@ docker run -it --rm \
     ./src/catkin/bin/catkin_make_isolated --install --install-space /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst -DCMAKE_BUILD_TYPE=Release \
       --ignore-pkg naoqi_sensors_py \
       --cmake-args \
-      -DCATKIN_BLACKLIST_PACKAGES="naoqi_sensors_py;pointcloud_to_pcd;pcd_to_pointcloud;convert_pointcloud_to_image" \
+      -DCATKIN_BLACKLIST_PACKAGES="naoqi_sensors_py" \
       -DOPENSSL_ROOT_DIR=/home/nao/ctc/openssl \
       -DWITH_QT=OFF \
       -DSETUPTOOLS_DEB_LAYOUT=OFF \

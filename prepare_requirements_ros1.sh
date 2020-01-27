@@ -67,6 +67,52 @@ docker run -it --rm \
 
 
 
+
+
+#docker run -it --rm \
+#  -u $(id -u $USER) \
+#  -e PYTHON2_VERSION=${PYTHON2_VERSION} \
+#  -v ${HOST_INSTALL_ROOT}:/home/nao/${PEPPER_INSTALL_ROOT} \
+#  -v ${ALDE_CTC_CROSS}:/home/nao/ctc \
+#  -e CC \
+#  -e CPP \
+#  -e CXX \
+#  -e RANLIB \
+#  -e AR \
+#  -e AAL \
+#  -e LD \
+#  -e READELF \
+#  -e CFLAGS \
+#  -e CPPFLAGS \
+#  -e LDFLAGS \
+#  ros1-pepper \
+#  bash -c "\
+#   set -euf -o pipefail && \
+#   wget https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2 && \
+#   tar --bzip2 -xf boost_1_72_0.tar.bz2 && \
+#   mkdir -p build_boost_build && \
+#   mkdir -p build_boost && \
+#   cd boost_1_72_0/tools/build/ && \
+#   ./bootstrap.sh && \
+#   ./b2 install --prefix=../../../build_boost_build && \
+#   export PATH=$PATH:/home/nao/ctc/bin && \
+#   export PATH=$PATH:/home/nao/build_boost_build/bin && \
+#   cd ../../ && \
+#   b2 \
+#      --build-dir=../build_boost \
+#      --prefix=/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies \
+#      --enable-tests=no \
+#      --build=x86_64-linux \
+#       architecture=x86 \
+#       stage \
+#"
+
+
+
+
+
+
+
 docker run -it --rm \
   -u $(id -u $USER) \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \

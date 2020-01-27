@@ -14,7 +14,7 @@ repositories:
   pcl:
     type: git
     url: https://github.com/PointCloudLibrary/pcl.git
-    version: 72f41b60a539cd1da67d1329b57222290122a0bb
+    version: pcl-1.9.1
   poco:
     type: git
     url: https://github.com/pocoproject/poco.git
@@ -55,7 +55,19 @@ repositories:
     type: git
     url: https://github.com/OctoMap/octomap.git
     version: v1.9.1
-  draco:
+#  draco:
+#    type: git
+#    url: https://github.com/google/draco.git
+#    version: 1.3.5
+  eigen3:
     type: git
-    url: https://github.com/google/draco.git
-    version: 1.3.5
+    url: https://gitlab.com/libeigen/eigen.git
+    version: 3.3.7
+  hdf5:
+    type: git
+    url: https://github.com/fmrico/hdf5-crossready.git
+    version: master
+  opencv:
+    type: git
+    url: https://github.com/opencv/opencv.git
+    version: master

@@ -253,6 +253,15 @@ set(TIFF_INCLUDE_DIR "${ALDE_CTC_CROSS}/tiff/include" CACHE INTERNAL "" FORCE)
 set(PNG_LIBRARY "${ALDE_CTC_CROSS}/png/lib/libpng.so" CACHE INTERNAL "" FORCE)
 set(PNG_INCLUDE_DIR "${ALDE_CTC_CROSS}/png/include" CACHE INTERNAL "" FORCE)
 
+set(HDF5_LIBRARY "/home/nao/${INSTALL_ROOT}/ros1_dependencies/lib/libhdf5.so" CACHE INTERNAL "" FORCE)
+set(HDF5_INCLUDE_DIRS "/home/nao/${INSTALL_ROOT}/ros1_dependencies/include" CACHE INTERNAL "" FORCE)
+
+set(FLANN_LIBRARY "/home/nao/${INSTALL_ROOT}/ros1_dependencies/lib/libflann.so" CACHE INTERNAL "" FORCE)
+set(FLANN_INCLUDE_DIR "/home/nao/${INSTALL_ROOT}/ros1_dependencies/include" CACHE INTERNAL "" FORCE)
+
+set(QHULL_LIBRARY "/home/nao/${INSTALL_ROOT}/ros1_dependencies/lib/libqhull.so" CACHE INTERNAL "" FORCE)
+set(QHULL_INCLUDE_DIR "/home/nao/${INSTALL_ROOT}/ros1_dependencies/include" CACHE INTERNAL "" FORCE)
+
 set(YAML_CPP_LIBRARIES "/home/nao/${INSTALL_ROOT}/ros1_dependencies/lib/libyaml-cpp.so" CACHE INTERNAL "" FORCE)
 set(YAML_CPP_INCLUDE_DIR "/home/nao/${INSTALL_ROOT}/ros1_dependencies/include" CACHE INTERNAL "" FORCE)
 
@@ -366,6 +375,18 @@ elseif(
     -lz \
     "
   )
+
+ elseif(
+       PROJECT_NAME STREQUAL "pcl_ros"
+  )
+    set(_link_flags
+      "\
+      -lbz2 \
+      -lz \
+      -lpcl_io_ply \
+      "
+    )
+
   elseif(
        PROJECT_NAME STREQUAL "rosauth"
    )
