@@ -49,7 +49,7 @@ docker run -it --rm \
   ros1-pepper \
   bash -c "\
     set -euf -o pipefail && \
-    export LD_LIBRARY_PATH=/home/nao/ctc/openssl/lib:/home/nao/ctc/zlib/lib:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/lib && \
+    export LD_LIBRARY_PATH=/home/nao/ctc/openssl/lib:/home/nao/ctc/zlib/lib:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/lib:/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies/lib && \
     export PATH=/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin:/home/nao/${PEPPER_INSTALL_ROOT}/bin:$PATH && \
     export PKG_CONFIG_PATH=/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies/lib/pkgconfig && \
     export LDFLAGS="-L/home/nao/${PEPPER_INSTALL_ROOT}/lib/icu" && \
