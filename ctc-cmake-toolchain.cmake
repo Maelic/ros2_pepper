@@ -226,6 +226,11 @@ set(Boost_DEBUG 1 CACHE INTERNAL "" FORCE)
 set(Boost_DETAILED_FAILURE_MSG 1 CACHE INTERNAL "" FORCE)
 
 # NOTE(esteve): manually specify paths to libraries so that find_package() finds them
+
+
+set(ICU_LIBRARY "${ALDE_CTC_CROSS}/icu/lib/libicudata.so" CACHE INTERNAL "" FORCE)
+set(ICU_INCLUDE_DIR "${ALDE_CTC_CROSS}/icu/include" CACHE INTERNAL "" FORCE)
+
 set(TinyXML_LIBRARY "${ALDE_CTC_CROSS}/tinyxml/lib/libtinyxml.so" CACHE INTERNAL "" FORCE)
 set(TinyXML_INCLUDE_DIR "${ALDE_CTC_CROSS}/tinyxml/include" CACHE INTERNAL "" FORCE)
 
@@ -295,6 +300,8 @@ include_directories(${ALDE_CTC_CROSS}/bzip2/include)
 include_directories(${ALDE_CTC_CROSS}/eigen3/include)
 include_directories(${ALDE_CTC_CROSS}/pcre/include)
 
+include_directories(${ALDE_CTC_CROSS}/icu/include)
+
 include_directories(${ALDE_CTC_CROSS}/openssl/include)
 include_directories(/home/nao/${INSTALL_ROOT}/ros1_dependencies/include)
 
@@ -314,7 +321,6 @@ if(
   PROJECT_NAME STREQUAL "kdl_parser" OR
   PROJECT_NAME STREQUAL "robot_state_publisher" OR
   PROJECT_NAME STREQUAL "polled_camera" OR
-  PROJECT_NAME STREQUAL "pcl_ros" OR
   PROJECT_NAME STREQUAL "nodelet")
   set(_link_flags
     "\
@@ -369,7 +375,7 @@ elseif(
   )
   elseif(
         PROJECT_NAME STREQUAL "PCL"
-)
+  )
   set(_link_flags
     "\
     -lbz2 \
@@ -379,12 +385,15 @@ elseif(
 
  elseif(
        PROJECT_NAME STREQUAL "pcl_ros"
-  )
+    )
     set(_link_flags
       "\
       -lbz2 \
       -lz \
       -lpcl_io_ply \
+      -licudata \
+      -licui18n \
+      -licuuc \
       "
     )
 
