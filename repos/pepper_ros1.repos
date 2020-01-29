@@ -51,6 +51,10 @@ repositories:
     type: git
     url: https://github.com/OctoMap/octomap_mapping.git
     version: 0.6.4
+  octomap/octomap_ros:
+    type: git
+    url: https://github.com/OctoMap/octomap_ros.git
+    version: 04ffc6adb4fcfcd2194ab002e37e64f4c77d507b
   perception_pcl/perception_pcl:
     type: git
     url: https://github.com/ros-gbp/perception_pcl-release.git

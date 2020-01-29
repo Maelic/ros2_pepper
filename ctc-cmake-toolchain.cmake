@@ -384,7 +384,8 @@ elseif(
   )
 
  elseif(
-       PROJECT_NAME STREQUAL "pcl_ros"
+       PROJECT_NAME STREQUAL "pcl_ros" OR
+       PROJECT_NAME STREQUAL "octomap_server"
     )
     set(_link_flags
       "\

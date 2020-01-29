@@ -1,0 +1,52 @@
+<launch>
+
+  <arg name="nao_ip"              default="$(optenv NAO_IP 127.0.0.1)" />
+  <arg name="nao_port"            default="$(optenv NAO_PORT 9559)" />
+
+  <arg name="roscore_ip"          default="127.0.0.1" />
+  <arg name="network_interface"   default="eth0" />
+
+  <arg name="namespace"           default="$(optenv ROS_NAMESPACE pepper_robot)" />
+
+  <!-- naoqi driver -->
+  <include file="$(find naoqi_driver)/launch/naoqi_driver.launch">
+    <arg name="nao_ip"            value="$(arg nao_ip)" />
+    <arg name="nao_port"          value="$(arg nao_port)" />
+    <arg name="roscore_ip"        value="$(arg roscore_ip)" />
+    <arg name="network_interface" value="$(arg network_interface)" />
+    <arg name="namespace"         value="$(arg namespace)" />
+  </include>
+
+  <!-- launch pose manager -->
+  <include file="$(find naoqi_pose)/launch/pose_manager.launch" ns="$(arg namespace)/pose" >
+    <arg name="nao_ip"            value="$(arg nao_ip)" />
+    <arg name="nao_port"          value="$(arg nao_port)" />
+  </include>
+
+  <!-- launch perception -->
+  <include file="$(find pepper_bringup)/launch/perception.launch.xml">
+    <arg name="namespace"         value="$(arg namespace)" />
+  </include>
+
+
+
+
+
+
+	<node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+		<param name="resolution" value="0.05" />
+		
+		<!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+		<param name="frame_id" type="string" value="odom" />
+		
+		<!-- maximum range to integrate (speedup!) -->
+		<param name="sensor_model/max_range" value="5.0" />
+		
+		<!-- data source to integrate (PointCloud2) -->
+		<remap from="cloud_in" to="/pepper_robot/camera/depth_registered/points" />
+	</node> 
+
+
+
+</launch>
+
