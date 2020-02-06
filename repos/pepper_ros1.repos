@@ -187,6 +187,20 @@ repositories:
     type: git
     url: https://github.com/ros-naoqi/naoqi_bridge-release.git
     version: release/kinetic/naoqi_pose/0.5.5-0
+  naoqi_bridge/naoqi_bridge:
+    type: git
+    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+    version: release/kinetic/naoqi_bridge/0.5.5-0
+  naoqi_bridge/naoqi_driver_py:
+    type: git
+    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+    version: release/kinetic/naoqi_driver_py/0.5.5-0
+
+  naoqi_bridge/naoqi_sensors_py:
+    type: git
+    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+    version: release/kinetic/naoqi_sensors_py/0.5.5-0
+
   pepper_robot:
     type: git
     url: https://github.com/ros-naoqi/pepper_robot.git
@@ -434,5 +448,33 @@ repositories:
   #point_cloud_transport: TODO!
   #  type: git
   #  url: https://github.com/paplhjak/point_cloud_transport.git
-  #  version: dd3274514b030a88107bdfd5166f53b67b3ef7fe
+  #  version: dd3274514b030a88107bdfd5166f53b67b3ef7fe 
+  pepper_dcm_robot:
+    type: git
+    url: https://github.com/ros-naoqi/pepper_dcm_robot.git
+    version: 0.0.5
+  naoqi_dcm_driver:
+    type: git
+    url: https://github.com/ros-naoqi/naoqi_dcm_driver.git
+    version: master
+  pepper_virual:
+    type: git
+    url: https://github.com/ros-naoqi/pepper_virtual.git
+    version: 0.0.4
+  xacro:
+    type: git
+    url: https://github.com/ros-gbp/xacro-release.git
+    version: release/kinetic/xacro/1.11.3-0
+  roslint:
+    type: git
+    url: https://github.com/ros-gbp/roslint-release.git
+    version: release/kinetic/roslint/0.11.0-0
+  ros_control:
+    type: git
+    url: https://github.com/ros-controls/ros_control.git
+    version: 0.13.4
+  pepper_moveit_config:
+    type: git
+    url: https://github.com/ros-naoqi/pepper_moveit_config.git
+    version: 0.0.8
 

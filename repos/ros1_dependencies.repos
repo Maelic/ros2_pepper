@@ -6,7 +6,7 @@ repositories:
   console_bridge:
     type: git
     url: https://github.com/ros/console_bridge.git
-    version: 8c3c62501bf8521dcf53705b497ea982b874c25d
+    version: 8c3c62501bf8521dcf53705b497ea982b874c25d   # 0.4.4 fails TODO
   flann:
     type: git
     url: https://github.com/mariusmuja/flann.git

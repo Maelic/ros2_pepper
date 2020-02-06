@@ -331,6 +331,7 @@ if(
   )
 elseif(
   PROJECT_NAME STREQUAL "naoqi_driver" OR
+  PROJECT_NAME STREQUAL "naoqi_dcm_driver" OR
   PROJECT_NAME STREQUAL "image_proc"
 )
   set(_link_flags

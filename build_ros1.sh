@@ -58,6 +58,9 @@ docker run -it --rm \
     rm -rf src/perception_pcl/* && \
     vcs import src < pepper_ros1.repos && \
     touch src/orocos_kinematics_dynamics/python_orocos_kdl/CATKIN_IGNORE && \
+    touch src/pepper_virual/pepper_gazebo_plugin/CATKIN_IGNORE && \
+    touch src/ros_control/controller_manager_tests/CATKIN_IGNORE && \
+    touch src/ros_control/combined_robot_hw_tests/CATKIN_IGNORE && \
     ./src/catkin/bin/catkin_make_isolated --install --install-space /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst -DCMAKE_BUILD_TYPE=Release \
       --ignore-pkg naoqi_sensors_py \
       --cmake-args \
@@ -81,7 +84,9 @@ mkdir -p  ${HOST_INSTALL_ROOT}/launch/
 #cp ${PWD}/setup.bash ${HOST_INSTALL_ROOT}/
 #cp ${PWD}/st-000-ros1.bash ${HOST_INSTALL_ROOT}/startup_scripts/
 cp ${PWD}/setup_ros1_pepper.bash ${HOST_INSTALL_ROOT}/setup_ros1_pepper.bash
-cp ${PWD}/launch/*.launch ${HOST_INSTALL_ROOT}/launch/
+#cp ${PWD}/launch/*.launch ${HOST_INSTALL_ROOT}/launch/
 cd ${PWD}
-tar -zcf ../System_$(date +%s).tar.gz System
+ARCHIV="System_$(date +%s).tar.gz"
+tar -zcf ../${ARCHIV} System
+ln -sfn ${ARCHIV} ../System.tar.gz
 echo "Done!"
