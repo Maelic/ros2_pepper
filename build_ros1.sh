@@ -77,7 +77,8 @@ docker run -it --rm \
       -DALDE_CTC_CROSS=/home/nao/ctc \
       -DCMAKE_PREFIX_PATH=\"/home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst\" \
       -DEIGEN_ROOT=${ALDE_CTC_CROSS}/eigen3 \
-      -DCMAKE_FIND_ROOT_PATH=\"/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}-pepper;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst;/home/nao/ctc\" \
+      -DCMAKE_FIND_ROOT_PATH=\"/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}-pepper;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst;/home/nao/ctc\" && \
+    jq '.converters.logs.enabled = false' /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst/share/naoqi_driver/share/boot_config.json|sponge /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst/share/naoqi_driver/share/boot_config.json \
     "
 
 mkdir -p  ${HOST_INSTALL_ROOT}/launch/

@@ -162,7 +162,7 @@ repositories:
   naoqi_bridge_msgs:
     type: git
     url: https://github.com/ros-naoqi/naoqi_bridge_msgs-release.git
-    version: e25d4dc6b0e1cb5406be183cd9c486086a41dc82
+    version: release/kinetic/naoqi_bridge_msgs
   naoqi_driver:
     type: git
     url: https://github.com/JackFK/naoqi_driver.git  #https://github.com/esteve/naoqi_driver.git
@@ -183,23 +183,28 @@ repositories:
  #   type: git
  #   url: https://github.com/ros-naoqi/naoqi_bridge-release.git
  #   version: ??
-  naoqi_bridge/naoqi_pose:
+  naoqi_bridge:
     type: git
-    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
-    version: release/kinetic/naoqi_pose/0.5.5-0
-  naoqi_bridge/naoqi_bridge:
-    type: git
-    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
-    version: release/kinetic/naoqi_bridge/0.5.5-0
-  naoqi_bridge/naoqi_driver_py:
-    type: git
-    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
-    version: release/kinetic/naoqi_driver_py/0.5.5-0
-
-  naoqi_bridge/naoqi_sensors_py:
-    type: git
-    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
-    version: release/kinetic/naoqi_sensors_py/0.5.5-0
+    url: https://github.com/ros-naoqi/naoqi_bridge.git
+    version: master
+  
+#naoqi_bridge/naoqi_pose:
+#    type: git
+#    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+#    version: release/kinetic/naoqi_pose/0.5.5-0
+#  naoqi_bridge/naoqi_bridge:
+#    type: git
+#    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+#    version: release/kinetic/naoqi_bridge/0.5.5-0
+#  naoqi_bridge/naoqi_driver_py:
+#    type: git
+#    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+#    version: release/kinetic/naoqi_driver_py/0.5.5-0
+#
+#  naoqi_bridge/naoqi_sensors_py:
+#    type: git
+#    url: https://github.com/ros-naoqi/naoqi_bridge-release.git
+#    version: release/kinetic/naoqi_sensors_py/0.5.5-0
 
   pepper_robot:
     type: git

@@ -2,7 +2,18 @@
 
 set -euf -o pipefail
 
-PYTHON2_VERSION=2.7.17
+PYTHON2_MAJOR_VERSION=2
+PYTHON2_MINOR_VERSION=7
+PYTHON2_PATCH_VERSION=17
+
+PYTHON3_MAJOR_VERSION=3
+PYTHON3_MINOR_VERSION=8
+PYTHON3_PATCH_VERSION=1
+
+PYTHON2_VERSION=${PYTHON2_MAJOR_VERSION}.${PYTHON2_MINOR_VERSION}.${PYTHON2_PATCH_VERSION}
+PYTHON3_VERSION=${PYTHON3_MAJOR_VERSION}.${PYTHON3_MINOR_VERSION}.${PYTHON3_PATCH_VERSION}
+
+#PYTHON2_VERSION=2.7.17
 
 HOST_INSTALL_ROOT="${BASE_ROOT:-${PWD}}/"System
 PEPPER_INSTALL_ROOT=System
@@ -58,12 +69,13 @@ docker run -it --rm \
     ../configure \
       --prefix=/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} \
       --disable-ipv6 \
+      --enable-unicode=ucs4 \
       ac_cv_file__dev_ptmx=yes \
       ac_cv_file__dev_ptc=no && \
     export LD_LIBRARY_PATH=/home/nao/ctc/openssl/lib:/home/nao/ctc/zlib/lib:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/lib && \
     make -j8 install && \
     wget -O - -q https://bootstrap.pypa.io/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
-    /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces Twisted"
+    /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces Twisted qibuild"
 
 
 
