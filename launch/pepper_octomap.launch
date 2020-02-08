@@ -4,7 +4,7 @@
   <arg name="nao_port"            default="$(optenv NAO_PORT 9559)" />
 
   <arg name="roscore_ip"          default="127.0.0.1" />
-  <arg name="network_interface"   default="eth0" />
+  <arg name="network_interface"   default="wlan0" />
 
   <arg name="namespace"           default="$(optenv ROS_NAMESPACE pepper_robot)" />
 
