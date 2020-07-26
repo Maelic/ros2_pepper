@@ -26,9 +26,12 @@ fi
 
 docker run -it --rm \
   -u $(id -u $USER) \
+  -e ALDE_CTC_CROSS=/home/nao/ctc \
+  -e PEPPER_INSTALL_ROOT=${PEPPER_INSTALL_ROOT} \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \
+  -v ${PWD}/libqi-release-2.9:/home/nao/libqi:rw \
   -v ${PWD}/Python-${PYTHON2_VERSION}:/home/nao/Python-${PYTHON2_VERSION}-src \
   -v ${HOST_INSTALL_ROOT}/Python-${PYTHON2_VERSION}:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} \
   -v ${ALDE_CTC_CROSS}:/home/nao/ctc \
   ros1-pepper \
-  bash 
+  bash

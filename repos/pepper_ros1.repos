@@ -483,3 +483,22 @@ repositories:
     url: https://github.com/ros-naoqi/pepper_moveit_config.git
     version: 0.0.8
 
+############################################
+# localization
+# 
+############################################
+#  ros-geographic-info/geographic_info:
+#    type: git
+#    url: https://github.com/ros-geographic-info/geographic_info.git
+#    version: master
+#
+#  ros-geographic-info/unique_identifier:
+#    type: git
+#    url: https://github.com/ros-geographic-info/unique_identifier.git
+#    version: master
+
+#  robot_localization:
+#    type: git
+#    url: https://github.com/cra-ros-pkg/robot_localization.git
+#    version: 3.1.1
+
