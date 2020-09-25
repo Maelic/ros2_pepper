@@ -1,6 +1,6 @@
 ## Introduction
 
-This project contains a set of patches and scripts to compile and run ROS 1 and ROS 2 onboard a Pepper robot, without the need of a tethered computer.
+This project contains a set of patches and scripts to compile and run ROS Kinetic onboard a Pepper robot. It runs OctoMap on it.
 
 ## Pre-requirements
 
@@ -23,7 +23,7 @@ $ git clone git clone https://github.com/JackFK/ros2_pepper.git
 $ cd ros2_pepper
 ```
 
-## ROS 1
+## ROS 
 
 ### Prepare the requirements for ROS 1
 
@@ -38,16 +38,25 @@ The following script will create a Docker image and compile Python interpreters 
 Before we actually build ROS for Pepper, there's a bunch of dependencies we'll need to cross compile which are not available in Softbank's CTC:
 
 - console_bridge
+- uuid
 - poco
 - tinyxml2
-- urdfdom
-- urdfdom_headers
+- urdfdom and urdfdom_headers
+- SDL and SDL image
+- hdf5
+- bullet
+- yaml-cpp
+- eigen3
+- qhull
+- flann
+- pcl
+- octomap
 
 ```
 ./build_ros1_dependencies.sh
 ```
 
-### Build ROS 1
+### Build ROS Kinetic
 
 Finally! Type the following, go grab a coffee and after a while you'll have an entire base ROS distro built for Pepper.
 
@@ -60,6 +69,7 @@ Finally! Type the following, go grab a coffee and after a while you'll have an e
 By now you should have the following inside .ros-root in the current directory:
 
 - Python 2.7 built for Pepper (System/Python-2.7.17)
+- Python 3.8 built for Pepper (System/Python-3.8.1)
 - All the dependencies required by ROS (System/ros1_dependencies)
 - A ROS workspace with ROS Kinetic built for Pepper (System/ros1_inst)
 - A helper script that will set up the ROS workspace in the robot (System/setup_ros1_pepper.bash)
@@ -67,10 +77,12 @@ By now you should have the following inside .ros-root in the current directory:
 We're going to copy these to the robot, assuming that your robot is connected to your network, type the following:
 
 ```
-$ scp -r System nao@IP_ADDRESS_OF_YOUR_ROBOT:ROS
+$ scp -r System.tar.gz nao@IP_ADDRESS_OF_YOUR_ROBOT:ROS
 ```
 
-### Run ROS 1 from inside Pepper
+unpack it on the robot again.
+
+### Run ROS Kinetic with octomap from inside Pepper
 
 Now that we have it all in the robot, let's give it a try:
 
@@ -93,71 +105,14 @@ $ roslaunch naoqi_driver naoqi_driver.launch nao_ip:=IP_ADDRESS_OF_YOUR_ROBOT \
     roscore_ip:=IP_ADDRESS_OF_YOUR_ROBOT network_interface:=NETWORK_INTERFACE
 ```
 
-## ROS 2
-
-BEWARE: The ROS 2 port is still experimental and incomplete, simple sensors such as the bumpers work, but the camera driver has not been ported yet.
-
-The following instructions require that you have ROS 1 built for Pepper.
-
-### Prepare the requirements for ROS 2
-
-The following script will create a Docker image and compile Python interpreters suitable for both the host and the robot.
+*or use the launchfile provided with this repo to start octomap on pepper*
 
 ```
-./prepare_requirements_ros2.sh
+$ roslaunch  ̃/System/launch/pepper.launch
 ```
 
-### Build ROS 2
 
-Let's now build ROS 2 for Pepper:
+## Citations and Sources
+This repo is based on https://github.com/esteve/ros2_pepper of Esteve Fernandez.
 
-```
-./build_ros2.sh
-```
-
-### Copy ROS 2 and its dependencies to the robot
-
-Besides the ROS 1 binaries and its dependencies, we'll now a few more directories inside .ros-root in our current directory:
-
-- Python 3.6 built for Pepper (.ros-root/Python-3.6.1)
-- A ROS 2 workspace built for Pepper (.ros-root/ros2_inst)
-
-We're going to copy these to the robot, assuming that your robot is connected to your network, type the following:
-
-```
-$ scp -r .ros-root nao@IP_ADDRESS_OF_YOUR_ROBOT:.ros-root
-```
-
-### Run ROS 2 from inside Pepper
-
-Now that we have it all in the robot, let's give it a try:
-
-*SSH into the robot*
-
-```
-$ ssh nao@IP_ADDRESS_OF_YOUR_ROBOT
-```
-
-*Source (not run) the setup script*
-
-```
-$ source .ros-root/setup_ros2_pepper.bash
-```
-
-ROS 2 does not have a something like roslaunch yet, so you'll have to run naoqi_driver directly:
-
-*Start naoqi_driver, note that NETWORK\_INTERFACE may be either wlan0 or eth0, pick the appropriate interface if your robot is connected via wifi or ethernet*
-
-```
-$ naoqi_driver_node --qi-url=tcp://IP_ADDRESS_OF_YOUR_ROBOT:9559 \
-    --roscore_ip=IP_ADDRESS_OF_YOUR_ROBOT --network_interface=NETWORK_INTERFACE \
-    --namespace=naoqi_driver
-```
-
-## Demos
-
-The folks at the [Universidad Rey Juan Carlos](http://robotica.gsyc.es/) and [Intelligent Robotics](http://inrobots.es/) have produced the following video showing a Pepper robot runnning ROS onboard using the code from this repository:
-
-[![Pepper Navigation](http://img.youtube.com/vi/0wIWJHMchaU/0.jpg)](https://www.youtube.com/watch?v=0wIWJHMchaU "Pepper Navigation")
-
-Enjoy!
+I used it to create a configuration for Pepper with Octomap for my thesis. 
