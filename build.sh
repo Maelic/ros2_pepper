@@ -10,4 +10,4 @@ else
     ./pushover_notification.sh "compilation took $ELAPSED_TIME min" "failed"
 fi
 
-sudo shutdown -h now
+

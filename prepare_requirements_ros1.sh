@@ -37,7 +37,7 @@ mkdir -p ${HOST_INSTALL_ROOT}/Python-${PYTHON2_VERSION}
 
 
 docker run -it --rm \
-  -u $(id -u $USER) \
+  --user root \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \
   -v ${PWD}/Python-${PYTHON2_VERSION}:/home/nao/Python-${PYTHON2_VERSION}-src \
   -v ${PWD}/Python-${PYTHON2_VERSION}-host:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} \
@@ -74,12 +74,12 @@ docker run -it --rm \
       ac_cv_file__dev_ptc=no && \
     export LD_LIBRARY_PATH=/home/nao/ctc/openssl/lib:/home/nao/ctc/zlib/lib:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/lib && \
     make -j8 install && \
-    wget -O - -q https://bootstrap.pypa.io/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
+    wget -O - -q https://bootstrap.pypa.io/pip/2.7/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
     /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces Twisted qibuild"
 
 
 docker run -it --rm \
-  -u $(id -u $USER) \
+  --user root \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \
   -v ${PWD}/Python-${PYTHON2_VERSION}:/home/nao/Python-${PYTHON2_VERSION}-src \
   -v ${HOST_INSTALL_ROOT}/Python-${PYTHON2_VERSION}:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} \
@@ -101,10 +101,5 @@ docker run -it --rm \
       ac_cv_file__dev_ptmx=yes \
       ac_cv_file__dev_ptc=no && \
     make -j8 install && \
-    wget -O - -q https://bootstrap.pypa.io/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
-    /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install empy catkin-pkg setuptools vcstool numpy rospkg defusedxml netifaces pymongo image tornado && \
-    cd .. && \
-    wget https://twistedmatrix.com/Releases/Twisted/19.10/Twisted-19.10.0.tar.bz2 && \
-    tar -xjvf Twisted-19.10.0.tar.bz2 && \
-    cd Twisted-19.10.0 && \
-    python setup.py install"
+    wget -O - -q https://bootstrap.pypa.io/pip/2.7/get-pip.py | /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/python && \
+    /home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}/bin/pip install Twisted==19.7.0 empy catkin-pkg setuptools vcstool==0.1.40 numpy rospkg defusedxml netifaces pymongo image tornado==4.5.3"
