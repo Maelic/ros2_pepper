@@ -11,6 +11,12 @@ export AL_DIR=/home/NaoQi  <-- Or wherever you installed NaoQi
 export ALDE_CTC_CROSS=$AL_DIR/ctc-linux64-atom-2.5.2.74
 ```
 
+Because the ctc 2.5.2.74 has been removed from SoftBank's official downloads you may need to use the ctc 2.5.10.7 instead:
+
+```
+export ALDE_CTC_CROSS=$AL_DIR/ctc-linux64-atom-2.5.10.7
+```
+
 ## Prepare cross-compiling environment
 
 We're going to use Docker to set up a container that will compile all the tools for cross-compiling ROS and all of its dependencies. Go to https://www.docker.com/community-edition to download it and install it for your Linux distribution.
@@ -19,7 +25,7 @@ We're going to use Docker to set up a container that will compile all the tools 
 1. Clone the project's repository
 
 ```
-$ git clone git clone https://github.com/JackFK/ros2_pepper.git
+$ git clone https://github.com/Maelic/ros2_pepper.git
 $ cd ros2_pepper
 ```
 
@@ -114,5 +120,3 @@ $ roslaunch  ̃/System/launch/pepper.launch
 
 ## Citations and Sources
 This repo is based on https://github.com/esteve/ros2_pepper of Esteve Fernandez.
-
-I used it to create a configuration for Pepper with Octomap for my thesis. 
