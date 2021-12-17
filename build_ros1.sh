@@ -29,7 +29,7 @@ cp ctc-cmake-toolchain.cmake pepper_ros1_ws/
 cp cmake/eigen3-config.cmake pepper_ros1_ws/cmake/
 
 docker run -it --rm \
-  --user root \
+  -u $(id -u $USER) \
   -e PEPPER_INSTALL_ROOT=${PEPPER_INSTALL_ROOT} \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \
   -e PYTHON2_MAJOR_VERSION=${PYTHON2_MAJOR_VERSION} \

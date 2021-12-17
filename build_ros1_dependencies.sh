@@ -31,7 +31,7 @@ mkdir -p ros1_dependencies_sources/src
 cp repos/ros1_dependencies.repos ros1_dependencies_sources/
 
 docker run -it --rm \
-  --user root \
+  -u $(id -u $USER) \
   -e PYTHON2_VERSION=${PYTHON2_VERSION} \
   -e ALDE_CTC_CROSS=/home/nao/ctc \
   -e PEPPER_INSTALL_ROOT=${PEPPER_INSTALL_ROOT} \
