@@ -119,6 +119,10 @@ repositories:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
     version: release/kinetic/tf2_geometry_msgs/0.5.20-0
+  geometry2/tf2_sensor_msgs:
+    type: git
+    url: https://github.com/ros-gbp/geometry2-release.git
+    version: release/kinetic/tf2_sensor_msgs/0.5.20-0
   geometry2/tf2_kdl:
     type: git
     url: https://github.com/ros-gbp/geometry2-release.git
@@ -502,3 +506,9 @@ repositories:
 #    url: https://github.com/cra-ros-pkg/robot_localization.git
 #    version: 3.1.1
 
+
+
+  moveit:
+    type: git
+    url: https://github.com/Maelic/moveit.git
+    version: main

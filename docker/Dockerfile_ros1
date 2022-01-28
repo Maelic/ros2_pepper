@@ -3,23 +3,23 @@ MAINTAINER esteve@apache.org
 USER root
 RUN dpkg --add-architecture i386
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends locales
+RUN apt-get install -y --no-install-recommends locales curl
 RUN locale-gen en_US en_US.UTF-8
 RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG en_US.UTF-8
 RUN apt-get install -y --no-install-recommends lsb-release software-properties-common
 RUN apt-get install -y --no-install-recommends apt-transport-https
 RUN echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends libc6-i386
 RUN apt-get install -y --no-install-recommends apt-transport-https
 RUN apt-get install -y --no-install-recommends build-essential cmake git libssl-dev wget zlib1g-dev
 RUN apt-get install -y --allow-unauthenticated --no-install-recommends python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential
-RUN apt-get install -y --allow-unauthenticated --no-install-recommends python3-vcstool python3-empy
-RUN apt-get install -y --no-install-recommends automake pkg-config libtool ccache
-RUN apt-get install -y flex
-RUN apt-get install -y gobjc++
+RUN apt-get install -y --allow-unauthenticated --no-install-recommends python3-vcstool python3-empy python-catkin-pkg
+RUN apt-get install -y --allow-unauthenticated --no-install-recommends automake pkg-config libtool ccache
+RUN apt-get install -y --allow-unauthenticated --no-install-recommends flex
+RUN apt-get install -y --allow-unauthenticated --no-install-recommends gobjc++
 RUN useradd -ms /bin/bash nao
 WORKDIR /home/nao
 USER nao

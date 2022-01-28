@@ -10,7 +10,7 @@ PYTHON3_PATCH_VERSION=1
 PYTHON2_VERSION=${PYTHON2_MAJOR_VERSION}.${PYTHON2_MINOR_VERSION}.${PYTHON2_PATCH_VERSION}
 PYTHON3_VERSION=${PYTHON3_MAJOR_VERSION}.${PYTHON3_MINOR_VERSION}.${PYTHON3_PATCH_VERSION}
 
-HOST_INSTALL_ROOT="${BASE_ROOT:-${PWD}}/"System
+HOST_INSTALL_ROOT="${BASE_ROOT:-${PWD}}"System
 PEPPER_INSTALL_ROOT=System
 
 set -euf -o pipefail
@@ -24,7 +24,7 @@ mkdir -p pepper_ros1_ws/cmake
 mkdir -p pepper_ros1_ws/src
 mkdir -p ${HOST_INSTALL_ROOT}/ros1_inst
 
-cp repos/pepper_ros1.repos pepper_ros1_ws/
+cp repos/pepper_ros1.repos pepper_ros1_ws/  
 cp ctc-cmake-toolchain.cmake pepper_ros1_ws/
 cp cmake/eigen3-config.cmake pepper_ros1_ws/cmake/
 
@@ -77,8 +77,7 @@ docker run -it --rm \
       -DALDE_CTC_CROSS=/home/nao/ctc \
       -DCMAKE_PREFIX_PATH=\"/home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst\" \
       -DEIGEN_ROOT=${ALDE_CTC_CROSS}/eigen3 \
-      -DCMAKE_FIND_ROOT_PATH=\"/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}-pepper;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst;/home/nao/ctc\" && \
-    jq '.converters.logs.enabled = false' /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst/share/naoqi_driver/share/boot_config.json|sponge /home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst/share/naoqi_driver/share/boot_config.json \
+      -DCMAKE_FIND_ROOT_PATH=\"/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION}-pepper;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_dependencies;/home/nao/${PEPPER_INSTALL_ROOT}/ros1_inst;/home/nao/ctc\"
     "
 
 mkdir -p  ${HOST_INSTALL_ROOT}/launch/
@@ -88,6 +87,6 @@ cp ${PWD}/setup_ros1_pepper.bash ${HOST_INSTALL_ROOT}/setup_ros1_pepper.bash
 #cp ${PWD}/launch/*.launch ${HOST_INSTALL_ROOT}/launch/
 cd ${PWD}
 ARCHIV="System_$(date +%s).tar.gz"
-tar -zcf ../${ARCHIV} System
-ln -sfn ${ARCHIV} ../System.tar.gz
+tar -zcf "System_$(date +%s).tar.gz" System
+ln -sfn "System_$(date +%s).tar.gz" System.tar.gz
 echo "Done!"

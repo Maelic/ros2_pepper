@@ -71,3 +71,20 @@ repositories:
     type: git
     url: https://github.com/opencv/opencv.git
     version: master
+
+############################################ 
+###   NEWLY ADDED - MOVEIT DEPENDENCIES  ###
+############################################
+
+  fcl:
+    type: git
+    url: https://github.com/flexible-collision-library/fcl
+    version: fcl-0.5
+  ompl:
+    type: git
+    url: https://github.com/ompl/ompl
+    version: 1.2.3
+  libccd:
+    type: git
+    url: https://github.com/danfis/libccd.git
+    version: master
