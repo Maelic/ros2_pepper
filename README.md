@@ -98,24 +98,26 @@ Now that we have it all in the robot, let's give it a try:
 $ ssh nao@IP_ADDRESS_OF_YOUR_ROBOT
 ```
 
-*Source (not run) the setup script*
+*(IN THE ROBOT): Source (not run) the setup script*
 
 ```
 $ source System/setup_ros1_pepper.bash
 ```
 
-*Start naoqi_driver, note that NETWORK\_INTERFACE may be either wlan0 or eth0, pick the appropriate interface if your robot is connected via wifi or ethernet*
+*(IN THE ROBOT): Start the launch file for octomap*
 
 ```
-$ roslaunch naoqi_driver naoqi_driver.launch nao_ip:=IP_ADDRESS_OF_YOUR_ROBOT \
-    roscore_ip:=IP_ADDRESS_OF_YOUR_ROBOT network_interface:=NETWORK_INTERFACE
+$ roslaunch  ~/System/launch/pepper_octomap.launch 
 ```
 
-*or use the launchfile provided with this repo to start octomap on pepper*
+*(ON THE EXTERNAL COMPUTER CONNECTED TO THE ROBOT): launch Rviz and visualized the data published in real time*
 
 ```
-$ roslaunch  ̃/System/launch/pepper.launch
+$ export ROS_MASTER_URI=http://IP_ADDRESS_OF_YOUR_ROBOT:11311
+$ export ROS_IP=IP_ADDRESS_OF_YOUR_ROBOT
+$ rviz rviz
 ```
+You should be able to see the built map under the topic "projected-map" (Add -> By Topic -> projected_map).
 
 
 ## Citations and Sources
