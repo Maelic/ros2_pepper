@@ -50,7 +50,7 @@ repositories:
   octomap/octomap_mapping:
     type: git
     url: https://github.com/OctoMap/octomap_mapping.git
-    version: 0.6.4
+    version: 0.6.1
   octomap/octomap_ros:
     type: git
     url: https://github.com/OctoMap/octomap_ros.git

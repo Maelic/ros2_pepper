@@ -54,7 +54,7 @@ repositories:
   octomap:
     type: git
     url: https://github.com/OctoMap/octomap.git
-    version: v1.9.1
+    version: v1.8.1
 #  draco:
 #    type: git
 #    url: https://github.com/google/draco.git
@@ -87,4 +87,4 @@ repositories:
   libccd:
     type: git
     url: https://github.com/danfis/libccd.git
-    version: master
+    version: e33c60a1b839ee8220b8dc9d1e4a823e0d5ed08f

@@ -24,7 +24,7 @@ if [ -z "$ALDE_CTC_CROSS" ]; then
   exit 1
 fi
 
-docker build -t ros1-pepper -f docker/Dockerfile_ros1 docker/
+docker build -t ros-pepper -f docker/Dockerfile_ros1 docker/
 
 if [ ! -e "Python-${PYTHON2_VERSION}.tar.xz" ]; then
   wget -cN https://www.python.org/ftp/python/$PYTHON2_VERSION/Python-${PYTHON2_VERSION}.tar.xz
@@ -53,7 +53,7 @@ docker run -it --rm \
   -e CFLAGS \
   -e CPPFLAGS \
   -e LDFLAGS \
-  ros1-pepper \
+  ros-pepper \
   bash -c "\
     set -euf -o pipefail && \
     wget https://fossies.org/linux/misc/bzip2-1.0.8.tar.gz && \
@@ -84,7 +84,7 @@ docker run -it --rm \
   -v ${PWD}/Python-${PYTHON2_VERSION}:/home/nao/Python-${PYTHON2_VERSION}-src \
   -v ${HOST_INSTALL_ROOT}/Python-${PYTHON2_VERSION}:/home/nao/${PEPPER_INSTALL_ROOT}/Python-${PYTHON2_VERSION} \
   -v ${ALDE_CTC_CROSS}:/home/nao/ctc \
-  ros1-pepper \
+  ros-pepper \
   bash -c "\
     set -euf -o pipefail && \
     mkdir -p Python-${PYTHON2_VERSION}-src/build-pepper && \
